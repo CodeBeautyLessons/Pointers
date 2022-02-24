@@ -18,6 +18,13 @@ public:
 
 int main()
 {
+	// weak pointers
+	weak_ptr<int> wePtr1;
+	{
+		shared_ptr<int> shPtr0 = make_shared<int>(25);
+		wePtr1 = shPtr0;
+	}
+
 	// shared pointers
 	{
 		shared_ptr<MyClass> shPtr1 = make_shared<MyClass>();
@@ -34,7 +41,7 @@ int main()
 		unique_ptr<MyClass>uClassPtr1 = make_unique<MyClass>();
 	}
 
-	// weak pointers
+	// unique pointers
 	unique_ptr<int> unPtr1 = make_unique<int>(25);
 	unique_ptr<int> unPtr2 = move(unPtr1);
 	cout << *unPtr2 << endl;
